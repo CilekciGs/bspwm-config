@@ -1,0 +1,33 @@
+#! /bin/sh
+
+pgrep -x sxhkd > /dev/null || sxhkd &
+pkill polybar & 
+
+bspc monitor -d 1 2 3 4 5 6
+
+bspc config border_width         0
+bspc config window_gap           8
+
+bspc config split_ratio           		  0.52
+bspc config borderless_monocle    true
+bspc config gapless_monocle       	 true
+bspc config focus_follows_pointer true
+
+bspc rule -a Brave-browser desktop=^2
+bspc rule -a Steam desktop=^6
+bspc rule -a discord desktop=^5
+bspc rule -a telegram-desktop=^5
+
+## Auto-Start
+#xsetroot -cursor_name left_ptr &						## Fixes The Cursor Being An X
+polybar top &									## Polybar (Bar)
+/usr/libexec/polkit-mate-authentication-agent-1  &									## Light X polkit (User account control)
+/usr/bin/dunst &									## Dunst (Notifications)
+picom --no-fading-openclose &						## Picom (Desktop Compositor)
+feh --randomize --bg-scale --no-fehbg /usr/share/backgrounds/ &	## Set the wallpaper with Feh
+rog-control-center &
+#wmname LG3D &
+
+# Configuration
+#pactl set-sink-volume 0 30%
+#xbacklight 30

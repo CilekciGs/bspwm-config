@@ -1,0 +1,2 @@
+Desktop: bspwm picom sxhkd polybar dunst feh fish pulseaudio amixer xbacklight mate-polkit
+Programs: Asusctl Qutebrowser Thunar Kitty LxAppearance
